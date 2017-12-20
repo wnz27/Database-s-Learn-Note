@@ -1,4 +1,4 @@
-SQL
+# SQL
 ## SQL RDBMS
 *A Brief Overview of Common Relational Database Management Systems*
 ### BACKGROUND
