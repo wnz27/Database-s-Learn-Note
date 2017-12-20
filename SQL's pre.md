@@ -186,16 +186,18 @@ Let's begin by entering a SQL command. In the code editor type
 You will run all of your SQL commands in this course by pressing the Run button at the bottom of the code editor.
 Query Results
 ```
-id	      name	             age
-1	         Justin Bieber        22
+id	         name	             age
+1	         Justin Bieber           22
 2	         Beyonce Knowles	   33
-3	         Jeremy Lin	          26
-4	         Taylor Swift	       26
+3	         Jeremy Lin	             26
+4	         Taylor Swift	   26
+
 Database Schema
+
           celebs4                    rows
-id                        INTEGER
-name	                     TEXT
-age	                     INTEGER
+id                         INTEGER
+name	                 TEXT
+age	                 INTEGER
 ```
 
 
