@@ -187,9 +187,9 @@ You will run all of your SQL commands in this course by pressing the Run button 
 Query Results
 ```
 id	         name	             age
-1	         Justin Bieber           22
-2	         Beyonce Knowles	   33
-3	         Jeremy Lin	             26
+1	         Justin Bieber       22
+2	         Beyonce Knowle       33
+3	         Jeremy Lin	            26
 4	         Taylor Swift	   26
 
 Database Schema
