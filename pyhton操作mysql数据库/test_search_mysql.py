@@ -47,7 +47,7 @@ class MySearchSQL(object):
             # 关闭cursor
             cursor.close()
     
-    # 执行sql
+    # 执行批量sql
     def executeSQL(self,sql):
         with self.conn.cursor() as cursor:
             try:
@@ -63,6 +63,27 @@ class MySearchSQL(object):
             except pymysql.Error as e:
                 print('Error: %s' % e)
     
+    # 添加数据
+    def add_one(self):
+        # 准备sql语句,这里用元组两个字符串会自动拼接，这是个技巧
+        sql = (
+            'INSERT INTO `news` (`title`,`image`,`content`,`author`, `types`) '
+                'VALUE (%s, %s, %s, %s, %s);'
+        )
+        # 获取连接和cursor
+        with self.conn.cursor() as cursor:
+            try:
+                result = cursor.execute(sql,('啦啦啦','/image/1.png','新闻内容太杂乱' ,'fzk27', '推荐'))
+                self.conn.commit()
+                print(result)
+                # 关闭cursor和连接
+                cursor.close()
+            except pymysql.Error as e:
+                print('Error: %s' % e)
+                # self.conn.rollback()      # 如果出现异常可以回滚提交操作
+        
+            
+    
 def main():
     # 准备sql
     sql = 'SELECT * FROM `news`;'
@@ -70,6 +91,7 @@ def main():
     # 执行sql
     # connect.get_one()
     connect.executeSQL(sql)
+    connect.add_one()
     # 关闭连接
     connect.close_connect()
 
