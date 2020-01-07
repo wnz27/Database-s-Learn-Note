@@ -22,3 +22,17 @@
 ##### 解决排查方向
 1. 增加max_allowed_packet配置的大小
 2. 设置为100MB：`SET PERSIST max_allowed_packet=100*1024*1024`，设置GB以此类推。
+
+### MySQL 2002 错误解决连接异常
+###### 错误代码
+`ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)`
+###### 错误排查
+连接问题
+我最初初始化配置mysql服务器的时候，先用的是mysqld --initialize xxxxxxxxxx命令来初始化的，
+我的mysql文件位置在`/usr/local/mysql`
+之后使用这个命令把启动服务器命令换了位置：`cp /usr/local/mysql/support-files/mysql.sever /etc/init.d/mysqld`
+之后可以使用`/etc/init.d/mysqld start`来启动mysql服务
+之所以出现上面的错误是因为我忘记启动服务就使用`mysql -u xxxx -p`来登录mysql，所以报错
+重新启动服务再登录就没问题了。
+
+
